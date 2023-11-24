@@ -18,7 +18,134 @@ router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
 		ticketNumbers.push(ticketNumber.toString().padStart(4, "0"));
 	}
 
-	let mail = ""; // Just leave it here
+	let mail = `
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Ticket Email</title>
+            <style>
+                body {
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: 0 auto;
+                color: #333;
+                }
+                .header {
+                background-color: #007BFF;
+                padding: 20px;
+                text-align: center;
+                }
+                .header h1 {
+                color: #fff;
+                margin-bottom: 0;
+                font-size: 28px;			
+                line-height :1.5em ;
+                }
+                .content {
+                background-color:#f9f9f9 ;            
+                padding-left :40px ;
+                padding-right :40px ;
+                padding-top :30px ;	    
+                padding-bottom :30px ;
+                }
+                p{
+                line-height :1.7em ;
+                font-size :20px ;
+                }
+                img{
+                width :100%;
+                height:auto ;	     
+                }        
+                .ticket-info {                
+                border-top :2px solid #007BFF ;		
+                border-bottom :2px solid #007BFF ;		
+                padding-top :15 px ;		
+                padding-bottom :15 px ;
+                text-align:center;	        
+                font-size :24 px ;
+                font-weight:bold;	
+                margin-top :10 px ;
+                margin-bottom :10 px ;	        
+                }       
+                a{
+                color:#007BFF ;
+                text-decoration:none ;
+                font-size:16px;	   
+                }
+                a:hover{
+                text-decoration :underline ;
+                }
+                .footer {                
+                background-color:#f2f2f2 ;		
+                padding-left:30 px ;		
+                padding-right:30 px ;		
+                padding-top:20 px ;		
+                padding-bottom:20 px ;
+                font-size :16 px ;	        
+                }       
+                .contact-info {
+                display:flex;
+                align-items:center;
+                margin-bottom:5px;
+                font-size:16px;
+                }
+                .contact-logo {
+                width:16px;
+                height:auto;
+                margin-right:8px;
+                }
+                .ticket-number {
+                font-size: 48px;
+                font-weight: bold;
+                color: #007BFF;            
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>WORKSHOP C.A.T</h1>
+            </div>
+            <div class="content">
+                <p>Chào [name], [studentID]</p>
+                <div class="ticket-info">
+                    <p>Mã vé của bạn là:</p><br>
+                    [ticketNumbers]
+                </div>
+                <p>Đội cảm ơn và hẹn gặp lại bạn tại workshop!</p>
+                <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700850580/q5lox73slzyzibhuecpu.jpg" alt="C.A.T logo">
+            </div>
+            <div class="footer">
+                <p><strong>ĐỘI CỘNG TÁC VIÊN HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP.HCM</strong></p>
+                <div class="contact-info">
+                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854864/whnir1idslsnxpgdevkq.png" alt="Address" class="contact-logo">
+                    217 Hồng Bàng, Phường 11, Quận 5, TP.HCM
+                </div>
+                <div class="contact-info">
+                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854864/x6dtyuugx55hlajr2y8o.png" alt="Facebook" class="contact-logo">
+                    <a href="https://www.facebook.com/doictvhsvump" target="_blank">facebook.com/doictvhsvump</a>
+                </div>
+                <div class="contact-info">
+                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854863/mhn5ifo9qmgnlidi97rx.png" alt="Email" class="contact-logo">
+                    <a href="mailto:doictvhsv@gmail.com">doictvhsv@gmail.com</a>
+                </div>
+                <div class="contact-info">
+                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854864/usqyopqlibrit54wd96f.png" alt="Contact" class="contact-logo">
+                    Phạm Thị Hương - 0899919264
+                </div>
+            </div>
+        </body>
+    </html>
+`;
+
+	// Replace placeholders with actual data
+	mail = mail.replace("[name]", name);
+	mail = mail.replace("[studentID]", studentId);
+	let formattedTicketNumbers = ticketNumbers
+		.map((number) => `<span class='ticket-number'>${number}</span><br>`)
+		.join("");
+	mail = mail.replace("[ticketNumbers]", formattedTicketNumbers);
 
 	let message = {
 		from: process.env.EMAIL_ADDRESS,
