@@ -33,7 +33,7 @@ router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
                 color: #333;
                 }
                 .header {
-                background-color: #007BFF;
+                background-color: #b6d9dd;
                 padding: 20px;
                 text-align: center;
                 }
@@ -59,8 +59,8 @@ router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
                 height:auto ;	     
                 }        
                 .ticket-info {                
-                border-top :2px solid #007BFF ;		
-                border-bottom :2px solid #007BFF ;		
+                border-top :2px solid #b6d9dd ;		
+                border-bottom :2px solid #b6d9dd ;		
                 padding-top :15 px ;		
                 padding-bottom :15 px ;
                 text-align:center;	        
@@ -70,7 +70,7 @@ router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
                 margin-bottom :10 px ;	        
                 }       
                 a{
-                color:#007BFF ;
+                color:#49a3a3 ;
                 text-decoration:none ;
                 font-size:16px;	   
                 }
@@ -99,7 +99,7 @@ router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
                 .ticket-number {
                 font-size: 48px;
                 font-weight: bold;
-                color: #007BFF;            
+                color: #49a3a3;            
                 }
             </style>
         </head>
