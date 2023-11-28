@@ -114,7 +114,7 @@ router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
                     [ticketNumbers]
                 </div>
                 <p>Đội cảm ơn và hẹn gặp lại bạn tại workshop!</p>
-                <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700850580/q5lox73slzyzibhuecpu.jpg" alt="C.A.T logo">
+                <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1701192252/uktdj4cs90ds1epjvv4j.jpg" alt="Ticket image">
             </div>
             <div class="footer">
                 <p><strong>ĐỘI CỘNG TÁC VIÊN HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP.HCM</strong></p>
