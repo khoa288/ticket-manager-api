@@ -21,8 +21,9 @@ router.post("/login", async (req, res) => {
 			});
 
 			res.cookie("token", token, {
-				sameSite: "none",
+				sameSite: "lax",
 				secure: true,
+				httpOnly: true,
 			}).json({ token: token });
 		} catch (error) {
 			res.status(500).json({ error });
