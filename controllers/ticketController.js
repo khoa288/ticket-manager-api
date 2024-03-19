@@ -13,7 +13,7 @@ const { Readable } = require("stream");
 const transporterConfig = require("../config/mail").transporterConfig;
 const transporter = nodemailer.createTransport(transporterConfig);
 
-router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
+router.post("/sendTicket", async (req, res) => {
 	try {
 		const ticketInfo = await TicketInfo.findOneAndDelete({});
 		if (!ticketInfo) {
@@ -56,71 +56,59 @@ router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
 	}
 });
 
-router.get(
-	"/searchTickets/:studentId",
-	authMiddleware.verifyToken,
-	async (req, res) => {
-		const { studentId } = req.params;
+router.get("/searchTickets/:studentId", async (req, res) => {
+	const { studentId } = req.params;
 
-		try {
-			const tickets = await Ticket.find({ studentId });
+	try {
+		const tickets = await Ticket.find({ studentId });
 
-			if (!tickets || tickets.length === 0) {
-				return res.status(404).json({
-					message: "No tickets found for this student ID.",
-				});
-			}
-
-			return res.status(200).json(tickets);
-		} catch (error) {
-			return res.status(500).json({ error });
-		}
-	}
-);
-
-router.get(
-	"/ticketInfo/:ticketNumber",
-	authMiddleware.verifyToken,
-	async (req, res) => {
-		try {
-			const ticket = await Ticket.findOne({
-				ticketId: req.params.ticketId,
+		if (!tickets || tickets.length === 0) {
+			return res.status(404).json({
+				message: "No tickets found for this student ID.",
 			});
-
-			if (!ticket) {
-				return res.status(404).json({ message: "Ticket not found" });
-			}
-
-			return res.status(200).json(ticket);
-		} catch (error) {
-			return res.status(500).json({ error });
 		}
+
+		return res.status(200).json(tickets);
+	} catch (error) {
+		return res.status(500).json({ error });
 	}
-);
+});
 
-router.put(
-	"/useTicket/:ticketNumber",
-	authMiddleware.verifyToken,
-	async (req, res) => {
-		try {
-			const ticket = await Ticket.findOneAndUpdate(
-				{ ticketId: req.params.ticketId },
-				{ isUsed: true },
-				{ new: true }
-			);
+router.get("/ticketInfo/:ticketNumber", async (req, res) => {
+	try {
+		const ticket = await Ticket.findOne({
+			ticketId: req.params.ticketId,
+		});
 
-			if (!ticket) {
-				return res.status(404).json({ message: "Ticket not found" });
-			}
-
-			return res.status(200).json(ticket);
-		} catch (error) {
-			return res.status(500).json({ error });
+		if (!ticket) {
+			return res.status(404).json({ message: "Ticket not found" });
 		}
-	}
-);
 
-router.get("/ticketStats", authMiddleware.verifyToken, async (req, res) => {
+		return res.status(200).json(ticket);
+	} catch (error) {
+		return res.status(500).json({ error });
+	}
+});
+
+router.put("/useTicket/:ticketNumber", async (req, res) => {
+	try {
+		const ticket = await Ticket.findOneAndUpdate(
+			{ ticketId: req.params.ticketId },
+			{ isUsed: true },
+			{ new: true }
+		);
+
+		if (!ticket) {
+			return res.status(404).json({ message: "Ticket not found" });
+		}
+
+		return res.status(200).json(ticket);
+	} catch (error) {
+		return res.status(500).json({ error });
+	}
+});
+
+router.get("/ticketStats", async (req, res) => {
 	try {
 		const totalTickets = await Ticket.countDocuments();
 		const usedTickets = await Ticket.countDocuments({ isUsed: true });
@@ -135,7 +123,7 @@ router.get("/ticketStats", authMiddleware.verifyToken, async (req, res) => {
 	}
 });
 
-router.get("/exportTickets", authMiddleware.verifyToken, async (req, res) => {
+router.get("/exportTickets", async (req, res) => {
 	const { startDate, endDate } = req.query;
 
 	// Convert dates to ISO format.
@@ -217,77 +205,73 @@ router.get("/exportTickets", authMiddleware.verifyToken, async (req, res) => {
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.post(
-	"/sendTicketFile",
-	authMiddleware.verifyToken,
-	upload.single("file"),
-	async (req, res) => {
-		if (!req.file) {
-			return res.status(400).json({ error: "No file provided." });
-		}
-
-		try {
-			const readableStream = new Readable();
-			readableStream.push(req.file.buffer);
-			readableStream.push(null);
-
-			const results = [];
-			readableStream
-				.pipe(csvParser({ separator: ";" })) // Use semicolon as delimiter
-				.on("data", (data) => results.push(data))
-				.on("end", async () => {
-					for (let i = 0; i < results.length; i++) {
-						const student = results[i];
-						try {
-							const ticketInfo =
-								await TicketInfo.findOneAndDelete({});
-							if (!ticketInfo) {
-								throw new Error("No more tickets available.");
-							}
-
-							let mailContent = mail;
-							mailContent = mailContent.replace(
-								"[name]",
-								student.name
-							);
-							mailContent = mailContent.replace(
-								"[ticketId]",
-								ticketInfo.ticketId
-							);
-							mailContent = mailContent.replace(
-								"[ticketSecret]",
-								ticketInfo.ticketSecret
-							);
-
-							let message = {
-								from: process.env.EMAIL_ADDRESS,
-								to: student.email,
-								subject: "VÉ HÀNH TRÌNH THỦ LĨNH SINH VIÊN",
-								html: mailContent,
-							};
-
-							await transporter.sendMail(message);
-
-							const newTicket = new Ticket({
-								name: student.name,
-								studentId: student.studentId,
-								email: student.email,
-								ticketId: ticketInfo.ticketId,
-								ticketSecret: ticketInfo.ticketSecret,
-							});
-
-							await newTicket.save();
-						} catch (error) {
-							console.error(
-								`Failed to send email to ${student.email}: ${error}`
-							);
-						}
-					}
-					return res.status(201).json({ message: "Emails sent" });
-				});
-		} catch (error) {
-			return res.status(500).json({ error });
-		}
+router.post("/sendTicketFile", upload.single("file"), async (req, res) => {
+	if (!req.file) {
+		return res.status(400).json({ error: "No file provided." });
 	}
-);
+
+	try {
+		const readableStream = new Readable();
+		readableStream.push(req.file.buffer);
+		readableStream.push(null);
+
+		const results = [];
+		readableStream
+			.pipe(csvParser({ separator: ";" })) // Use semicolon as delimiter
+			.on("data", (data) => results.push(data))
+			.on("end", async () => {
+				for (let i = 0; i < results.length; i++) {
+					const student = results[i];
+					try {
+						const ticketInfo = await TicketInfo.findOneAndDelete(
+							{}
+						);
+						if (!ticketInfo) {
+							throw new Error("No more tickets available.");
+						}
+
+						let mailContent = mail;
+						mailContent = mailContent.replace(
+							"[name]",
+							student.name
+						);
+						mailContent = mailContent.replace(
+							"[ticketId]",
+							ticketInfo.ticketId
+						);
+						mailContent = mailContent.replace(
+							"[ticketSecret]",
+							ticketInfo.ticketSecret
+						);
+
+						let message = {
+							from: process.env.EMAIL_ADDRESS,
+							to: student.email,
+							subject: "VÉ HÀNH TRÌNH THỦ LĨNH SINH VIÊN",
+							html: mailContent,
+						};
+
+						await transporter.sendMail(message);
+
+						const newTicket = new Ticket({
+							name: student.name,
+							studentId: student.studentId,
+							email: student.email,
+							ticketId: ticketInfo.ticketId,
+							ticketSecret: ticketInfo.ticketSecret,
+						});
+
+						await newTicket.save();
+					} catch (error) {
+						console.error(
+							`Failed to send email to ${student.email}: ${error}`
+						);
+					}
+				}
+				return res.status(201).json({ message: "Emails sent" });
+			});
+	} catch (error) {
+		return res.status(500).json({ error });
+	}
+});
 module.exports = router;
