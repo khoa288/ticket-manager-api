@@ -10,7 +10,8 @@ let TicketSchema = new Schema(
 			required: true,
 			match: /^\S+@\S+\.\S+$/,
 		},
-		ticketNumber: { type: String, required: true, unique: true },
+		ticketId: { type: String, required: true },
+		ticketSecret: { type: String, required: true },
 		isUsed: { type: Boolean, default: false },
 	},
 	{

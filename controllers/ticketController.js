@@ -3,169 +3,52 @@ const Excel = require("exceljs");
 const authMiddleware = require("../middleware/authMiddleware");
 const nodemailer = require("nodemailer");
 const Ticket = require("../models/Ticket");
-const Counter = require("../models/Counter");
+const TicketInfo = require("../models/TicketInfo");
+const mail = require("../resource/mailContent");
+
+const multer = require("multer");
+const csvParser = require("csv-parser");
+const { Readable } = require("stream");
 
 const transporterConfig = require("../config/mail").transporterConfig;
 const transporter = nodemailer.createTransport(transporterConfig);
 
 router.post("/sendTicket", authMiddleware.verifyToken, async (req, res) => {
-	const { name, email, studentId, amount } = req.body;
-
-	// Generate unique 4-digit ticket numbers
-	const ticketNumbers = [];
-	for (let i = 0; i < amount; i++) {
-		const ticketNumber = await Counter.getNextSequence("ticket");
-		ticketNumbers.push(ticketNumber.toString().padStart(4, "0"));
-	}
-
-	let mail = `
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Ticket Email</title>
-            <style>
-                body {
-                font-family: Arial, sans-serif;
-                max-width: 600px;
-                margin: 0 auto;
-                color: #333;
-                }
-                .header {
-                background-color: #b6d9dd;
-                padding: 20px;
-                text-align: center;
-                }
-                .header h1 {
-                color: #fff;
-                margin-bottom: 0;
-                font-size: 28px;			
-                line-height :1.5em ;
-                }
-                .content {
-                background-color:#f9f9f9 ;            
-                padding-left :40px ;
-                padding-right :40px ;
-                padding-top :30px ;	    
-                padding-bottom :30px ;
-                }
-                p{
-                line-height :1.7em ;
-                font-size :20px ;
-                }
-                img{
-                width :100%;
-                height:auto ;	     
-                }        
-                .ticket-info {                
-                border-top :2px solid #b6d9dd ;		
-                border-bottom :2px solid #b6d9dd ;		
-                padding-top :15 px ;		
-                padding-bottom :15 px ;
-                text-align:center;	        
-                font-size :24 px ;
-                font-weight:bold;	
-                margin-top :10 px ;
-                margin-bottom :10 px ;	        
-                }       
-                a{
-                color:#49a3a3 ;
-                text-decoration:none ;
-                font-size:16px;	   
-                }
-                a:hover{
-                text-decoration :underline ;
-                }
-                .footer {                
-                background-color:#f2f2f2 ;		
-                padding-left:30 px ;		
-                padding-right:30 px ;		
-                padding-top:20 px ;		
-                padding-bottom:20 px ;
-                font-size :16 px ;	        
-                }       
-                .contact-info {
-                display:flex;
-                align-items:center;
-                margin-bottom:5px;
-                font-size:16px;
-                }
-                .contact-logo {
-                width:16px;
-                height:auto;
-                margin-right:8px;
-                }
-                .ticket-number {
-                font-size: 48px;
-                font-weight: bold;
-                color: #49a3a3;            
-                }
-            </style>
-        </head>
-        <body>
-            <div class="header">
-                <h1>WORKSHOP C.A.T</h1>
-            </div>
-            <div class="content">
-                <p>Chào [name], [studentID]</p>
-                <div class="ticket-info">
-                    <p>Mã vé của bạn là:</p><br>
-                    [ticketNumbers]
-                </div>
-                <p>Đội cảm ơn và hẹn gặp lại bạn tại workshop!</p>
-                <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1701192252/uktdj4cs90ds1epjvv4j.jpg" alt="Ticket image">
-            </div>
-            <div class="footer">
-                <p><strong>ĐỘI CỘNG TÁC VIÊN HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP.HCM</strong></p>
-                <div class="contact-info">
-                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854864/whnir1idslsnxpgdevkq.png" alt="Address" class="contact-logo">
-                    217 Hồng Bàng, Phường 11, Quận 5, TP.HCM
-                </div>
-                <div class="contact-info">
-                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854864/x6dtyuugx55hlajr2y8o.png" alt="Facebook" class="contact-logo">
-                    <a href="https://www.facebook.com/doictvhsvump" target="_blank">facebook.com/doictvhsvump</a>
-                </div>
-                <div class="contact-info">
-                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854863/mhn5ifo9qmgnlidi97rx.png" alt="Email" class="contact-logo">
-                    <a href="mailto:doictvhsv@gmail.com">doictvhsv@gmail.com</a>
-                </div>
-                <div class="contact-info">
-                    <img src="https://res.cloudinary.com/ddo8wsmdc/image/upload/v1700854864/usqyopqlibrit54wd96f.png" alt="Contact" class="contact-logo">
-                    Phạm Thị Hương - 0899919264
-                </div>
-            </div>
-        </body>
-    </html>
-`;
-
-	// Replace placeholders with actual data
-	mail = mail.replace("[name]", name);
-	mail = mail.replace("[studentID]", studentId);
-	let formattedTicketNumbers = ticketNumbers
-		.map((number) => `<span class='ticket-number'>${number}</span><br>`)
-		.join("");
-	mail = mail.replace("[ticketNumbers]", formattedTicketNumbers);
-
-	let message = {
-		from: process.env.EMAIL_ADDRESS,
-		to: email,
-		subject: "[ĐỘI CTV HSV] VÉ THAM GIA WORKSHOP C.A.T",
-		html: mail,
-	};
-
 	try {
+		const ticketInfo = await TicketInfo.findOneAndDelete({});
+		if (!ticketInfo) {
+			throw new Error("No more tickets available.");
+		}
+		const { name, email, studentId } = req.body;
+
+		let mailContent = mail;
+
+		// Replace placeholders with actual data
+		mailContent = mailContent.replace("[name]", name);
+		mailContent = mailContent.replace("[ticketId]", ticketInfo.ticketId);
+		mailContent = mailContent.replace(
+			"[ticketSecret]",
+			ticketInfo.ticketSecret
+		);
+
+		let message = {
+			from: process.env.EMAIL_ADDRESS,
+			to: email,
+			subject: "VÉ HÀNH TRÌNH THỦ LĨNH SINH VIÊN",
+			html: mailContent,
+		};
 		await transporter.sendMail(message);
 
 		// Save the ticket information to MongoDB
-		const tickets = ticketNumbers.map((ticketNumber) => ({
-			name,
-			studentId,
-			email,
-			ticketNumber,
-		}));
+		const newTicket = new Ticket({
+			name: name,
+			studentId: studentId,
+			email: email,
+			ticketId: ticketInfo.ticketId,
+			ticketSecret: ticketInfo.ticketSecret,
+		});
 
-		await Ticket.insertMany(tickets);
+		await newTicket.save();
 
 		return res.status(201).json({ message: "Email sent" });
 	} catch (error) {
@@ -201,7 +84,7 @@ router.get(
 	async (req, res) => {
 		try {
 			const ticket = await Ticket.findOne({
-				ticketNumber: req.params.ticketNumber,
+				ticketId: req.params.ticketId,
 			});
 
 			if (!ticket) {
@@ -221,7 +104,7 @@ router.put(
 	async (req, res) => {
 		try {
 			const ticket = await Ticket.findOneAndUpdate(
-				{ ticketNumber: req.params.ticketNumber },
+				{ ticketId: req.params.ticketId },
 				{ isUsed: true },
 				{ new: true }
 			);
@@ -285,7 +168,8 @@ router.get("/exportTickets", authMiddleware.verifyToken, async (req, res) => {
 			{ header: "Name", key: "name" },
 			{ header: "Student ID", key: "studentId" },
 			{ header: "Email", key: "email" },
-			{ header: "Ticket Number", key: "ticketNumber" },
+			{ header: "Ticket ID", key: "ticketId" },
+			{ header: "Ticket Secret", key: "ticketSecret" },
 			{ header: "Is Used", key: "isUsed" },
 			{ header: "Sold At", key: "createdAt" },
 			{ header: "Used At", key: "updatedAt" },
@@ -330,4 +214,80 @@ router.get("/exportTickets", authMiddleware.verifyToken, async (req, res) => {
 	}
 });
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+router.post(
+	"/sendTicketFile",
+	authMiddleware.verifyToken,
+	upload.single("file"),
+	async (req, res) => {
+		if (!req.file) {
+			return res.status(400).json({ error: "No file provided." });
+		}
+
+		try {
+			const readableStream = new Readable();
+			readableStream.push(req.file.buffer);
+			readableStream.push(null);
+
+			const results = [];
+			readableStream
+				.pipe(csvParser({ separator: ";" })) // Use semicolon as delimiter
+				.on("data", (data) => results.push(data))
+				.on("end", async () => {
+					for (let i = 0; i < results.length; i++) {
+						const student = results[i];
+						try {
+							const ticketInfo =
+								await TicketInfo.findOneAndDelete({});
+							if (!ticketInfo) {
+								throw new Error("No more tickets available.");
+							}
+
+							let mailContent = mail;
+							mailContent = mailContent.replace(
+								"[name]",
+								student.name
+							);
+							mailContent = mailContent.replace(
+								"[ticketId]",
+								ticketInfo.ticketId
+							);
+							mailContent = mailContent.replace(
+								"[ticketSecret]",
+								ticketInfo.ticketSecret
+							);
+
+							let message = {
+								from: process.env.EMAIL_ADDRESS,
+								to: student.email,
+								subject: "VÉ HÀNH TRÌNH THỦ LĨNH SINH VIÊN",
+								html: mailContent,
+							};
+
+							await transporter.sendMail(message);
+
+							const newTicket = new Ticket({
+								name: student.name,
+								studentId: student.studentId,
+								email: student.email,
+								ticketId: ticketInfo.ticketId,
+								ticketSecret: ticketInfo.ticketSecret,
+							});
+
+							await newTicket.save();
+						} catch (error) {
+							console.error(
+								`Failed to send email to ${student.email}: ${error}`
+							);
+						}
+					}
+					return res.status(201).json({ message: "Emails sent" });
+				});
+		} catch (error) {
+			return res.status(500).json({ error });
+		}
+	}
+);
 module.exports = router;
