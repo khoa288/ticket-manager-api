@@ -81,12 +81,15 @@ a[x-apple-data-detectors='true'] {
   text-decoration: none !important;
 }
 
-table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: underline; } @media (max-width: 480px) { #u_content_text_1 .v-text-align { text-align: left !important; } #u_content_text_2 .v-container-padding-padding { padding: 0px 20px 10px !important; } #u_content_text_6 .v-container-padding-padding { padding: 5px 10px 5px 20px !important; } }
+@media (min-width: 481px) and (max-width: 768px) {
+}
+
+table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: underline; } @media (max-width: 480px) { #u_content_text_1 .v-text-align { text-align: left !important; } #u_content_text_3 .v-container-padding-padding { padding: 10px 20px !important; } }
     </style>
   
   
 
-<!--[if !mso]><!--><link href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet" type="text/css"><!--<![endif]-->
+<!--[if !mso]><!--><link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><!--<![endif]-->
 
 </head>
 
@@ -102,9 +105,9 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   
   
 <div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 550px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #fbfbfb;">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 550px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #132f40;">
     <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:550px;"><tr style="background-color: #fbfbfb;"><![endif]-->
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:550px;"><tr style="background-color: #132f40;"><![endif]-->
       
 <!--[if (mso)|(IE)]><td align="center" width="550" style="width: 550px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
 <div class="u-col u-col-100" style="max-width: 320px;min-width: 550px;display: table-cell;vertical-align: top;">
@@ -114,10 +117,24 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:12px;font-family:'Raleway',sans-serif;" align="left">
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Raleway',sans-serif;" align="left">
         
-  <div class="v-text-align" style="font-size: 22px; font-weight: 400; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 140%;"><strong>HÀNH TRÌNH THỦ LĨNH SINH VIÊN YDS MÙA 7</strong></p>
+  <div class="v-text-align" style="font-size: 23px; color: #000000; line-height: 140%; text-align: center; word-wrap: break-word;">
+    <div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p style="line-height: 140%;"><span style="color: #ffffff; line-height: 32.2px;"><strong>HÀNH TRÌNH THỦ LĨNH SINH VIÊN YDS MÙA 7</strong></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
   </div>
 
       </td>
@@ -148,47 +165,13 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   <div style="height: 100%;width: 100% !important;">
   <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
   
-<table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px 0px 10px;font-family:'Raleway',sans-serif;" align="left">
-        
-  <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 2px solid #000000;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-    <tbody>
-      <tr style="vertical-align: top">
-        <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-          <span>&#160;</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
 <table id="u_content_text_1" style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px;font-family:'Raleway',sans-serif;" align="left">
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:20px 20px 10px;font-family:'Raleway',sans-serif;" align="left">
         
   <div class="v-text-align" style="font-size: 14px; color: #132f40; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Rubik, sans-serif; font-size: 16px; line-height: 22.4px;">Bạn <strong>[name]</strong> thương mến,</span></p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table id="u_content_text_2" style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px;font-family:'Raleway',sans-serif;" align="left">
-        
-  <div class="v-text-align" style="font-size: 14px; color: #333333; line-height: 180%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 180%;">Ban tổ chức cảm ơn bạn đã dành sự quan tâm cũng như chấp nhận lời mời thách thức khả năng tiềm ẩn của bản thân với chúng tớ trong Hành trình Thủ lĩnh Sinh viên YDS Mùa 7. Hy vọng rằng chặng đường sắp tới đây sẽ không làm bạn thất vọng. </p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; color: #000000;"><span style="font-family: Rubik, sans-serif; text-align: left; white-space: normal; background-color: #ffffff; float: none; display: inline; line-height: 19.6px;">Bạn <strong>[name]</strong></span><span style="font-family: Rubik, sans-serif; text-align: left; white-space: normal; background-color: #ffffff; float: none; display: inline; line-height: 19.6px;"> thương mến,</span></span></p>
   </div>
 
       </td>
@@ -202,7 +185,29 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px;font-family:'Raleway',sans-serif;" align="left">
         
   <div class="v-text-align" style="font-size: 14px; color: #333333; line-height: 180%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 180%;">BTC xin gửi đến bạn <strong>MÃ CODE &amp; ID để tham gia Vòng 1 - NIGHTMARE:</strong></p>
+    <p style="font-size: 14px; line-height: 180%;"><span style="color: #333333; font-family: Raleway, sans-serif; font-size: 16px; text-align: left; white-space: normal; background-color: #ffffff; float: none; display: inline; line-height: 28.8px;">Ban tổ chức cảm ơn bạn đã dành sự quan tâm cũng như chấp nhận lời mời thách thức khả năng tiềm ẩn của bản thân với chúng tớ trong Hành trình Thủ lĩnh Sinh viên YDS Mùa 7. Hy vọng rằng chặng đường sắp tới đây sẽ không làm bạn thất vọng. </span></p>
+  </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table id="u_content_text_3" style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px;font-family:'Raleway',sans-serif;" align="left">
+        
+  <div class="v-text-align" style="font-size: 14px; color: #333333; line-height: 180%; text-align: left; word-wrap: break-word;">
+    <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;"><span style="color: #333333; font-family: Raleway, sans-serif; text-align: left; white-space: normal; background-color: #ffffff; float: none; display: inline; line-height: 25.2px;">BTC xin gửi đến bạn </span><strong style="line-height: inherit; color: #333333; font-family: Raleway, sans-serif; text-align: left; white-space: normal; background-color: #ffffff;">MÃ CODE &amp; ID để tham gia Vòng 1 - NIGHTMARE:</strong></span></p>
+<ul>
+<li style="font-size: 14px; line-height: 32.4px;">
+<div id="m_-992962770529724444waffle-rich-text-editor" dir="ltr" style="line-height: inherit; color: #000000; font-family: Raleway, sans-serif; font-size: 18px; text-align: left; white-space: normal; background-color: #ffffff;" role="combobox" aria-label="A1" aria-autocomplete="list"><span style="font-size: 18px; line-height: 32.4px;">Tên vé dự thi: <strong>[ticketId]</strong></span></div>
+</li>
+<li style="font-size: 14px; line-height: 32.4px;">
+<div id="m_-992962770529724444waffle-rich-text-editor" dir="ltr" style="line-height: inherit; color: #000000; font-family: Raleway, sans-serif; font-size: 18px; text-align: left; white-space: normal; background-color: #ffffff;" role="combobox" aria-label="A1" aria-autocomplete="list"><span style="font-size: 18px; line-height: 32.4px;">Mã bảo mật vé: <strong>[ticketSecret]</strong></span></div>
+</li>
+</ul>
   </div>
 
       </td>
@@ -213,22 +218,37 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 0px 40px;font-family:'Raleway',sans-serif;" align="left">
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Raleway',sans-serif;" align="left">
         
-  <div class="v-text-align" style="font-size: 18px; line-height: 160%; text-align: left; word-wrap: break-word;">
-    <div dir="ltr">
-<div spellcheck="false">
-<div id="waffle-rich-text-editor" dir="ltr" tabindex="0" role="combobox" aria-label="A1" aria-autocomplete="list">Tên vé dự thi: <strong>[ticketId]</strong></div>
-<div dir="ltr" tabindex="0" role="combobox" aria-label="A1" aria-autocomplete="list">
-<div dir="ltr">
-<div spellcheck="false">
-<div id="waffle-rich-text-editor" dir="ltr" tabindex="0" role="combobox" aria-autocomplete="list" aria-label="B1">Mã bảo mật vé: <strong>[ticketSecret]</strong></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-  </div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
+      
+      <img align="center" border="0" src="https://assets.unlayer.com/projects/0/1711144019475-Mặt%201.PNG" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 530px;" width="530"/>
+      
+    </td>
+  </tr>
+</table>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Raleway',sans-serif;" align="left">
+        
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
+      
+      <img align="center" border="0" src="https://assets.unlayer.com/projects/0/1711144038708-Mặt%202.PNG" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 530px;" width="530"/>
+      
+    </td>
+  </tr>
+</table>
 
       </td>
     </tr>
@@ -241,24 +261,22 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px 30px;font-family:'Raleway',sans-serif;" align="left">
         
   <div class="v-text-align" style="font-size: 14px; color: #333333; line-height: 160%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 160%;"><span style="text-decoration: underline; line-height: 22.4px;"><em>Một vài lưu ý nho nhỏ:</em></span></p>
-<ul>
-<li style="line-height: 22.4px;">
-<p style="line-height: 160%;">Link thi sẽ được mở từ <strong>20g00 ngày 11/03/2024 đến hết ngày 22/03/2024.</strong></p>
+    <p style="line-height: 160%; margin: 0px; color: #333333; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #ffffff;"><span style="line-height: 25.6px; text-decoration-line: underline; font-size: 16px;"><em style="line-height: inherit;">Một vài lưu ý nho nhỏ:</em></span></p>
+<ul style="line-height: inherit; color: #333333; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #ffffff;">
+<li style="line-height: 22.4px; margin-left: 15px;">
+<p style="line-height: 160%; margin: 0px;"><span style="font-size: 16px; line-height: 25.6px;">Link thi sẽ được mở từ <strong style="line-height: inherit;">20g00 ngày 11/03/2024 đến hết ngày 22/03/2024.</strong></span></p>
 </li>
-<li style="line-height: 22.4px;">
-<p style="line-height: 160%;">Mỗi mã dự thi chỉ có giá trị đăng nhập <strong>MỘT LẦN DUY NHẤT.</strong></p>
+<li style="line-height: 22.4px; margin-left: 15px;">
+<p style="line-height: 160%; margin: 0px;"><span style="font-size: 16px; line-height: 25.6px;">Mỗi mã dự thi chỉ có giá trị đăng nhập <strong style="line-height: inherit;">MỘT LẦN DUY NHẤT.</strong></span></p>
 </li>
-<li style="line-height: 22.4px;">
-<p style="line-height: 160%;">Các bạn vui lòng đăng nhập tham gia dự thi trong khoảng thời gian đã được công bố.</p>
+<li style="line-height: 22.4px; margin-left: 15px;">
+<p style="line-height: 160%; margin: 0px;"><span style="font-size: 16px; line-height: 25.6px;">Các bạn vui lòng đăng nhập tham gia dự thi trong khoảng thời gian đã được công bố.</span></p>
 </li>
-<li style="line-height: 22.4px;">
-<p style="line-height: 160%;">BTC xin phép không giải quyết bất kỳ vấn đề liên quan đến việc đăng nhập thi sau khoảng thời gian quy định trên.</p>
+<li style="line-height: 22.4px; margin-left: 15px;">
+<p style="line-height: 160%; margin: 0px;"><span style="font-size: 16px; line-height: 25.6px;">BTC xin phép không giải quyết bất kỳ vấn đề liên quan đến việc đăng nhập thi sau khoảng thời gian quy định trên.</span></p>
 </li>
 </ul>
-<p style="line-height: 160%;">Mọi thông tin chi tiết các bạn có thể cập nhật trên fanpage chính thức của chương trình. Mong rằng bạn hãy sẽ tiếp tục dõi theo chuyến hành trình này cùng chúng tớ nhé!</p>
-<p style="line-height: 160%;"> </p>
-<p style="line-height: 160%;">Trân trọng,</p>
+<p style="line-height: 160%;"><span style="color: #333333; font-family: Raleway, sans-serif; font-size: 16px; text-align: left; white-space: normal; background-color: #ffffff; float: none; display: inline; line-height: 25.6px;">Trân trọng,</span></p>
   </div>
 
       </td>
@@ -332,17 +350,17 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   <div style="height: 100%;width: 100% !important;">
   <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
   
-<table id="u_content_text_6" style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+<table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px 20px 5px 30px;font-family:'Raleway',sans-serif;" align="left">
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px;font-family:'Raleway',sans-serif;" align="left">
         
   <div class="v-text-align" style="font-size: 14px; color: #ffffff; line-height: 150%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 150%;"><span style="font-size: 16px; line-height: 24px;"><strong>[HÀNH TRÌNH THỦ LĨNH SINH VIÊN YDS MÙA 7]</strong></span></p>
-<p style="font-size: 14px; line-height: 150%;"><span style="font-size: 12px; line-height: 18px;">Fanpage: Hành trình Thủ lĩnh Sinh viên YDS</span></p>
-<p style="font-size: 14px; line-height: 150%;"><span style="font-size: 12px; line-height: 18px;"><span style="line-height: 21px;">Facebook: </span><a href="https://www.facebook.com/HanhTrinhThuLinhSinhVienYDS?mibextid=ZbWKwL" style="color: #ecf0f1;">facebook.com/HanhTrinhThuLinhSinhVienYDS</a></span></p>
-<p style="line-height: 150%;"><span style="font-size: 12px; line-height: 18px;">Email: <span style="color: #ecf0f1; line-height: 21px;"><a href="mailto:hanhtrinhthulinhmua7@gmail.com" style="color: #ecf0f1;">hanhtrinhthulinhmua7@gmail.com</a></span></span></p>
-<p style="line-height: 150%;"><span style="font-size: 12px; line-height: 18px;">Sđt: 0969373264 - Lê Thị Yến Nhi (BTC chương trình)</span></p>
+    <p style="line-height: 150%; margin: 0px; color: #ffffff; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #132f40;"><span style="line-height: 24px; font-size: 16px;"><strong style="line-height: inherit;">[HÀNH TRÌNH THỦ LĨNH SINH VIÊN YDS MÙA 7]</strong></span></p>
+<p style="line-height: 150%; margin: 0px; color: #ffffff; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #132f40;"><span style="line-height: 18px; font-size: 12px;">Fanpage: Hành trình Thủ lĩnh Sinh viên YDS</span></p>
+<p style="line-height: 150%; margin: 0px; color: #ffffff; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #132f40;"><span style="line-height: 18px; font-size: 12px;"><span style="line-height: 21px;">Facebook: </span><a rel="noopener" href="https://www.facebook.com/HanhTrinhThuLinhSinhVienYDS?mibextid=ZbWKwL" target="_blank" style="line-height: inherit; color: #ecf0f1; text-decoration-line: underline;" data-saferedirecturl="https://www.google.com/url?q=https://www.facebook.com/HanhTrinhThuLinhSinhVienYDS?mibextid%3DZbWKwL&amp;source=gmail&amp;ust=1711230302544000&amp;usg=AOvVaw2Hz8uUUduYqVIuZc-0-ky9">facebook.com/<wbr style="line-height: inherit;" />HanhTrinhThuLinhSinhVienYDS</a></span></p>
+<p style="line-height: 150%; margin: 0px; color: #ffffff; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #132f40;"><span style="line-height: 18px; font-size: 12px;">Email: <span style="line-height: 21px; color: #ecf0f1;"><a rel="noopener" href="mailto:hanhtrinhthulinhmua7@gmail.com" target="_blank" style="line-height: inherit; color: #ecf0f1; text-decoration-line: underline;">hanhtrinhthulinhmua7@gmail.com</a></span></span></p>
+<p style="line-height: 150%; margin: 0px; color: #ffffff; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #132f40;"><span style="line-height: 18px; font-size: 12px;">Sđt: 0969373264 - Lê Thị Yến Nhi (BTC chương trình)</span></p>
   </div>
 
       </td>
@@ -367,49 +385,6 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 550px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #132f40;">
     <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
       <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:550px;"><tr style="background-color: #132f40;"><![endif]-->
-      
-<!--[if (mso)|(IE)]><td align="center" width="550" style="width: 550px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 550px;display: table-cell;vertical-align: top;">
-  <div style="height: 100%;width: 100% !important;">
-  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
-  
-<table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px;font-family:'Raleway',sans-serif;" align="left">
-        
-  <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 0px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-    <tbody>
-      <tr style="vertical-align: top">
-        <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-          <span>&#160;</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
-  </div>
-</div>
-<!--[if (mso)|(IE)]></td><![endif]-->
-      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-    </div>
-  </div>
-  </div>
-  
-
-
-  
-  
-<div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 550px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:550px;"><tr style="background-color: transparent;"><![endif]-->
       
 <!--[if (mso)|(IE)]><td align="center" width="550" style="width: 550px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
 <div class="u-col u-col-100" style="max-width: 320px;min-width: 550px;display: table-cell;vertical-align: top;">
@@ -457,6 +432,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 </body>
 
 </html>
+
 `;
 
 module.exports = mail;
