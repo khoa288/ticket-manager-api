@@ -56,6 +56,64 @@ router.post("/sendTicket", async (req, res) => {
 	}
 });
 
+router.post("/sendMultipleTickets", async (req, res) => {
+	try {
+		const { name, email, studentId, amount } = req.body;
+		if (!amount || amount <= 0) {
+			throw new Error("Invalid amount specified.");
+		}
+
+		// Find and delete the specified amount of ticketInfo documents
+		const ticketInfos = await TicketInfo.find({}).limit(amount);
+		if (ticketInfos.length < amount) {
+			throw new Error("Not enough tickets available.");
+		}
+		// Delete the found tickets from the collection
+		const ticketIdsToDelete = ticketInfos.map((ticket) => ticket._id);
+		await TicketInfo.deleteMany({ _id: { $in: ticketIdsToDelete } });
+
+		// Prepare the list of ticket IDs and secrets for the email
+		const ticketIds = ticketInfos.map((info) => info.ticketId).join(", ");
+		const ticketSecrets = ticketInfos
+			.map((info) => info.ticketSecret)
+			.join(", ");
+
+		let mailContent = mail;
+
+		// Replace placeholders with actual data
+		mailContent = mailContent.replace("[name]", name);
+		mailContent = mailContent.replace("[ticketId]", ticketIds);
+		mailContent = mailContent.replace("[ticketSecret]", ticketSecrets);
+
+		let message = {
+			from: process.env.EMAIL_ADDRESS,
+			to: email,
+			subject: "VÉ HÀNH TRÌNH THỦ LĨNH SINH VIÊN",
+			html: mailContent,
+		};
+
+		await transporter.sendMail(message);
+
+		// Save each ticket information to MongoDB
+		for (const ticketInfo of ticketInfos) {
+			const newTicket = new Ticket({
+				name: name,
+				studentId: studentId,
+				email: email,
+				ticketId: ticketInfo.ticketId,
+				ticketSecret: ticketInfo.ticketSecret,
+			});
+			await newTicket.save();
+		}
+
+		return res
+			.status(201)
+			.json({ message: `Email sent with ${amount} tickets` });
+	} catch (error) {
+		return res.status(500).json({ error });
+	}
+});
+
 router.get("/searchTickets/:studentId", async (req, res) => {
 	const { studentId } = req.params;
 
