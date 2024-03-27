@@ -264,7 +264,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <p style="line-height: 160%; margin: 0px; color: #333333; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #ffffff;"><span style="line-height: 25.6px; text-decoration-line: underline; font-size: 16px;"><em style="line-height: inherit;">Một vài lưu ý nho nhỏ:</em></span></p>
 <ul style="line-height: inherit; color: #333333; font-family: Raleway, sans-serif; font-size: 14px; text-align: left; white-space: normal; background-color: #ffffff;">
 <li style="line-height: 22.4px; margin-left: 15px;">
-<p style="line-height: 160%; margin: 0px;"><span style="font-size: 16px; line-height: 25.6px;">Link thi sẽ được mở từ <strong style="line-height: inherit;">20g00 ngày 28/03/2024 đến hết ngày 31/03/2024.</strong></span></p>
+<p style="line-height: 160%; margin: 0px;"><span style="font-size: 16px; line-height: 25.6px;">Link thi sẽ được mở từ <strong style="line-height: inherit;">20g00 ngày 28/03/2024 đến 20g00 ngày 31/03/2024.</strong></span></p>
 </li>
 <li style="line-height: 22.4px; margin-left: 15px;">
 <p style="line-height: 160%; margin: 0px;"><span style="font-size: 16px; line-height: 25.6px;">Mỗi mã dự thi chỉ có giá trị đăng nhập <strong style="line-height: inherit;">MỘT LẦN DUY NHẤT.</strong></span></p>
