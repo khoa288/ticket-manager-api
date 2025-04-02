@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 let TicketSchema = new Schema(
 	{
 		name: { type: String, required: true },
-		studentId: { type: String, required: true },
 		email: {
 			type: String,
 			required: true,

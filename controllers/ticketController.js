@@ -58,16 +58,16 @@ router.post("/sendTicket", async (req, res) => {
 
 router.post("/sendMultipleTickets", async (req, res) => {
 	try {
-		const { name, email, studentId, amount } = req.body;
-		if (!amount || amount <= 0) {
-			throw new Error("Invalid amount specified.");
-		}
-
+		const { name, email } = req.body;
+		console.log("Request body:", req.body);
 		// Find and delete the specified amount of ticketInfo documents
-		const ticketInfos = await TicketInfo.find({}).limit(amount);
-		if (ticketInfos.length < amount) {
+		const ticketInfos = await TicketInfo.find({}).limit(1);
+		if (ticketInfos.length < 1) {
 			throw new Error("Not enough tickets available.");
 		}
+
+		console.log("Found tickets:", ticketInfos);
+
 		// Delete the found tickets from the collection
 		const ticketIdsToDelete = ticketInfos.map((ticket) => ticket._id);
 		await TicketInfo.deleteMany({ _id: { $in: ticketIdsToDelete } });
@@ -98,7 +98,6 @@ router.post("/sendMultipleTickets", async (req, res) => {
 		for (const ticketInfo of ticketInfos) {
 			const newTicket = new Ticket({
 				name: name,
-				studentId: studentId,
 				email: email,
 				ticketId: ticketInfo.ticketId,
 				ticketSecret: ticketInfo.ticketSecret,
@@ -106,11 +105,11 @@ router.post("/sendMultipleTickets", async (req, res) => {
 			await newTicket.save();
 		}
 
-		return res
-			.status(201)
-			.json({ message: `Email sent with ${amount} tickets` });
+		return res.status(201).json({ message: `Email sent!` });
 	} catch (error) {
-		return res.status(500).json({ error });
+		return res
+			.status(500)
+			.json({ error: error.message, stack: error.stack });
 	}
 });
 
@@ -212,7 +211,6 @@ router.get("/exportTickets", async (req, res) => {
 		// Add column headers.
 		worksheet.columns = [
 			{ header: "Name", key: "name" },
-			{ header: "Student ID", key: "studentId" },
 			{ header: "Email", key: "email" },
 			{ header: "Ticket ID", key: "ticketId" },
 			{ header: "Ticket Secret", key: "ticketSecret" },
